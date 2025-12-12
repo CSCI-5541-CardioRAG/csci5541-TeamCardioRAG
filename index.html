@@ -347,22 +347,102 @@
 
       <section class="content-card" id="Literature Survey">
         <h2>Literature Survey</h2>
+        </p>
+        Our work builds on recent advances in temporal reasoning, retrieval-augmented generation (RAG), and clinical NLP to support more context-aware cardiac care applications.
+        </p>
+
+        </p>
+         <strong>Temporal Reasoning in Clinical Data.</strong> Prior work on time-aware Transformers and graph-based models for clinical event prediction informs our use of temporal embeddings to model longitudinal patient histories.
+        </p>
+        
+        </p>
+        <strong>Retrieval-Augmented Generation.</strong> We draw from foundational RAG and dense passage retrieval literature, extending standard pipelines with structured, timestamped data to improve temporally grounded retrieval.
+        </p>
+
+        </p>
+        <strong>Clinical NLP and Efficient Modeling.</strong> Our approach is motivated by clinical language models and large-scale EHR resources such as MIMIC-IV, alongside efficiency techniques like quantization and QLoRA for scalable deployment.
+        </p>
+
       </section>
 
       <section class="content-card" id="Approach">
         <h2>Approach</h2>
+        <ol>
+      <li>
+        <strong>Temporal Modeling (Core Novelty)</strong><br />
+        Explicitly models patient state progression and treatment effects over time, addressing a key limitation of
+        existing medical RAG systems that treat clinical data statically.
+      </li>
+
+      <li>
+        <strong>Temporal RAG Architecture</strong><br />
+        Proposes a Transformer-based RAG pipeline augmented with temporal embeddings for time-aware retrieval and
+        reasoning in cardiology scenarios.
+      </li>
+
+      <li>
+        <strong>Longitudinal EHR Representation</strong><br />
+        Uses MIMIC-IV cardiac patient data to extract timestamped labs, vitals, medications, and procedures, forming
+        patient trajectories.
+      </li>
+
+      <li>
+        <strong>Temporal Encoding</strong><br />
+        Encodes event order, duration, and time gaps via a temporal encoder to produce time-aware patient embeddings.
+      </li>
+
+      <li>
+        <strong>Semantic Retrieval Layer</strong><br />
+        Combines temporal embeddings with semantic representations using <code>all-MiniLM-L6-v2</code> and vector search
+        via Chroma.
+      </li>
+
+      <li>
+        <strong>Clinical Knowledge Integration</strong><br />
+        Augments retrieval with cardiology guidelines, biomedical ontologies (UMLS, SNOMED CT), and clinical literature.
+      </li>
+
+      <li>
+        <strong>LLM Generation</strong><br />
+        Feeds retrieved temporal and semantic context into a 4-bit quantized Transformer model (Google Gemma 2.5) for
+        interpretable, time-grounded outputs.
+      </li>
+
+      <li>
+        <strong>Query-to-Context Matching</strong><br />
+        Matches user queries using semantic similarity, patient identifiers, and time windows to retrieve relevant events
+        from the vector database.
+      </li>
+
+      <li>
+        <strong>Evaluation Strategy</strong><br />
+        Evaluates accuracy using ROUGE-L and BLEU over user-defined temporal windows (e.g., 24h, 48h) against MIMIC-IV
+        ground truth.
+      </li>
+    </ol>
+  </div>
       </section>
   
       <section class="content-card" id="Results">
         <h2>Experiment Results</h2>
+        <p>
+          Our experiments show that Temporal RAG consistently outperforms a vanilla RAG baseline on time-sensitive cardiology queries. By explicitly modeling patient timelines, the system achieved higher recall within specified time windows and generated responses that better reflected longitudinal patient trajectories. Improvements were especially clear in scenarios such as rising troponin levels following chest pain, where Temporal RAG retrieved chronologically aligned labs and treatments, while the baseline often returned static or incomplete context. Quantitatively, BLEU and ROUGE-L scores showed modest but consistent gains, indicating better overlap with ground-truth summaries. Qualitative analysis further revealed improved interpretability, with clearer temporal ordering of diagnoses, labs, and medications. Although temporal filtering introduced slightly higher latency, performance remained suitable for interactive use, suggesting a favorable tradeoff between accuracy and speed in clinical settings.
+        </p>
+        
       </section>
 
       <section class="content-card" id="Error Analysis">
         <h2>Error Analysis</h2>
+        <p>
+          Several limitations emerged during evaluation. Due to computational constraints, we relied on smaller models such as Google’s Gemma, which enabled efficient inference but limited domain depth and struggled with complex cases involving overlapping diagnoses or treatments. Sensitivity to temporal drift was another source of error: misalignment of event timestamps occasionally caused outdated or irrelevant information to be included, particularly in long hospital admissions. Infrastructure constraints also impacted reliability, as Chroma’s document ingestion limits required manual batching for lengthy patient records, increasing the risk of incomplete indexing or retrieval gaps. These findings highlight both the benefits of temporal reasoning in clinical RAG and the challenges of scaling such systems. Future work will focus on integrating larger domain-specific models, improving robustness to temporal misalignment, and optimizing vector database ingestion for long, complex patient timelines.
+        </p>
       </section>
 
       <section class="content-card" id="Future Plans">
         <h2>Future Plans</h2>
+        <p>
+          We plan to extend our work by conducting a thorough comparison between the vanilla RAG model and the Temporal RAG system, with a focus on how temporal reasoning enhances retrieval relevance and clinical accuracy in cardiology. Building on the results presented in our final report, we aim to further analyse the temporal model’s advantages through both quantitative metrics and qualitative case studies, while expanding the chatbot’s capabilities to deliver richer, time‑aware outputs. Beyond evaluation, we will explore broader applications of Temporal RAG in other clinical domains, investigate replicability across different datasets, and address ethical considerations such as patient privacy and responsible deployment. Finally, we intend to refine the system’s limitations and propose pathways for future research, ensuring that Temporal RAG can evolve into a more robust and clinically impactful tool.
+        </p>
       </section>
         
 
