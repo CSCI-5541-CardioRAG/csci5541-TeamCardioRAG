@@ -305,61 +305,66 @@
         <div class="links-row">
           <a href="" class="link-pill">
             <span class="dot"></span>
-            <span>Midterm Report</span>
+            <span>Final Report(PDF)</span>
           </a>
-          <a href="" class="link-pill">
+          <a href="https://colab.research.google.com/drive/1yInV4XqfoGgPC0wDCGDcaeIv-JiRyqms#scrollTo=pLA_OxITwtk1" class="link-pill">
             <span class="dot"></span>
             <span>Code</span>
           </a>
-          <a href="" class="link-pill">
+          <!-- <a href="" class="link-pill">
             <span class="dot"></span>
             <span>Model Weights</span>
-          </a>
+          </a> -->
         </div>
       </div>
     </header>
 
-    <!-- ABSTRACT -->
-    <section class="content-card" id="abstract">
-      <h2>Abstract</h2>
-      <p>
-        Current Electronic Health Records (EHRs) contain rich longitudinal data that is critical for medical decision-making, but most existing NLP systems cannot effectively synthesize or retrieve information that unfolds over time.
-      </p>
-      <p>
-        Our approach introduces a Retrieval-Augmented Generation (RAG) pipeline with explicit temporal reasoning, designed to track, align, and surface time-dependent events in cardiac care. By incorporating temporal structure into both retrieval and generation, we aim to improve response relevance across a patient’s trajectory and support more accurate, time-aware clinical decision support.
-      </p>
-    </section>
-
     <!-- INTRO / MOTIVATION -->
     <section class="content-card" id="introduction">
-      <h2>Introduction · Background · Motivation</h2>
-
-      <p><b>What did you try to do? What problem did you try to solve?</b></p>
-      <p>
-        Electronic Health Records (EHRs) contain rich longitudinal data that is critical for clinical decision-making. However, most NLP systems struggle to reason over time—especially when events span days, weeks, or months. Retrieval-Augmented Generation (RAG) models offer promise by combining retrieval with generation, but current systems lack temporal awareness.
+      <h2>Introduction and Problem Statement </h2>
       </p>
-      <p>
-        Our goal is to enhance RAG models with temporal reasoning to improve response relevance and accuracy in cardiac care scenarios. This includes supporting clinicians in understanding patient trajectories, treatment timelines, and symptom progression.
+        Electronic Health Records (EHRs) contain rich lon-
+        gitudinal data critical for clinical decision-making.
+        However, most NLP systems struggle to reason
+        over time—especially when events span days,
+        weeks, or months. Retrieval-Augmented Gener-
+        ation (RAG) models offer promise by combining
+        retrieval with generation, but current systems such as CardioGPT lack
+        temporal awareness.
       </p>
-
-      <p><b>How is it done today, and what are the limits?</b></p>
-      <p>
-        Today, clinicians typically review patient records manually over time, scanning notes, lab results, and imaging reports across multiple visits. This is time-consuming and cognitively demanding, especially in complex cardiac cases. Existing NLP or search tools tend to treat documents as static text, ignoring event timing, temporal ordering, and trends.
       </p>
-
-      <p><b>Who cares? What difference will it make?</b></p>
-      <p>
-        A time-aware RAG system could make it faster and easier to synthesize a patient’s history for cardiologists, primary care physicians, nurses, and care coordinators. In practice, this could mean:
-      </p>
-      <ul style="font-size: 14px; color: var(--text-main); margin-left: 18px; margin-top: 6px;">
-        <li>Summarizing the evolution of symptoms and interventions over time.</li>
-        <li>Highlighting temporal patterns (e.g., repeated readmissions, medication changes before events).</li>
-        <li>Reducing cognitive load when reviewing complex longitudinal records.</li>
-      </ul>
-      <p style="margin-top: 8px;">
-        Ultimately, better temporal reasoning in RAG for cardiology has the potential to support more informed, timely, and patient-specific cardiac care.
+        Our project aims to enhance RAG models with
+        temporal reasoning to improve response relevance
+        and accuracy in cardiac care scenarios. By incorpo-
+        rating chronological order, event intervals, and time
+        gaps into both retrieval and generation, we hope to
+        support clinicians in understanding patient trajecto-
+        ries, treatment timelines, and symptom progression.
+        This could lead to more informed decisions and bet-
+        ter outcomes in complex cardiac cases.
       </p>
     </section>
+
+      <section class="content-card" id="Literature Survey">
+        <h2>Literature Survey</h2>
+      </section>
+
+      <section class="content-card" id="Approach">
+        <h2>Approach</h2>
+      </section>
+  
+      <section class="content-card" id="Results">
+        <h2>Experiment Results</h2>
+      </section>
+
+      <section class="content-card" id="Error Analysis">
+        <h2>Error Analysis</h2>
+      </section>
+
+      <section class="content-card" id="Future Plans">
+        <h2>Future Plans</h2>
+      </section>
+        
 
     <!-- You can uncomment / extend the sections below later for Approach, Results, etc. -->
     <!--
